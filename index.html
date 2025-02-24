@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYQ Archive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .pyq-list {
+            list-style: none;
+            padding: 0;
+        }
+        .pyq-list li {
+            background: #e3e3e3;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .pyq-list li:hover {
+            background: #d1d1d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Previous Year Questions (PYQs)</h1>
+        <input type="text" id="search" placeholder="Search subjects..." onkeyup="filterPYQs()">
+        <ul class="pyq-list" id="pyqList">
+            <li><a href="./AKTU_btech-1-sem-engineering-mathematics-1-bas-103-combine.pdf" download>Mathematics </a></li>
+            <li><a href="./AKTU-btech-1&2-sem-fundamentals-of-electronics-engineering-bec101-COMBINE.pdf" download>Electronics</a></li>
+            <li><a href="./btech-1&2-sem-engineering-chemistry-bas-102-combine.pdf" download>Chemistry</a></li>
+            <li><a href="./AKTU-btech-1&2-sem-fundamentals-of-mechanical-engineering-and-mechatronics-kme101&201t-2022.pdf" download>Mechanical</a></li>
+            <li><a href="./AKTU-btech-1&2-sem-soft-skills-bas105-205-2023.pdf" download>Soft Skill</a></li>
+
+        </ul>
+    </div>
+
+    <script>
+        function filterPYQs() {
+            let searchInput = document.getElementById("search").value.toLowerCase();
+            let pyqs = document.querySelectorAll(".pyq-list li");
+            
+            pyqs.forEach(item => {
+                let text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchInput) ? "block" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
